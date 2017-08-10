@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Teams</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-group *ngFor="let division of teams">
+      <ion-item-divider color="secondary">
+        <h2 text-center>{{division.divisionName}}</h2>
+      </ion-item-divider>
+      <button text-center ion-item *ngFor="let team of division.divisionTeams" (click)="itemTapped($event,team)">
+        {{team.name}}
+    </button>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle left>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Elite Schedule</ion-title>
+  </ion-navbar>
+  <ion-toolbar color="secondary">
+    <ion-title text-center>
+      <strong>
+      <h2>My Teams</h2>
+      </strong>
+    </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="!favorites">
+    <ion-card-header class="my-teams-header">Not Following a Team !!</ion-card-header>
+    <ion-card-content>
+      <p>If you want to follow teams ..<br/> Please find a tournament first !!
+      </p>
+      <button ion-button full round (click)="goToTournaments()">
+    <ion-icon name="search"></ion-icon>&nbsp;&nbsp;
+    Find a Tournament
+    </button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="favorites">
+    <ion-list>
+      <ion-list-header class="my-teams-header">
+        <h3>Followed Teams</h3>
+        <hr/>
+      </ion-list-header>
+      <button ion-item *ngFor="let item of favorites" (click)="favoriteTapped($event,item)">
+            <ion-icon name="star"></ion-icon>
+              {{item.team.name}} 
+              <p>{{item.tournamentName}}</p>   
+        </button>
+    </ion-list>
+    <ion-card-content>
+      <hr/>
+      <p>If you want to follow teams ..<br/> Please find a tournament first !!
+      </p>
+      <button ion-button full round (click)="goToTournaments()">
+    <ion-icon name="search"></ion-icon>&nbsp;&nbsp;
+    Find a Tournament
+    </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

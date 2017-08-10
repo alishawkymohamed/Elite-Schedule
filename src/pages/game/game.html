@@ -1,0 +1,15 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Game</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h3>Home Team</h3>
+  <button ion-button (click)="teamClicked($event,game.team1Id)">{{game.team1}}</button>
+  <h3>Away Team</h3>
+  <button ion-button (click)="teamClicked($event,game.team2Id)">{{game.team2}}</button>
+</ion-content>
