@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, LoadingController, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { StandingsPage, TeamHomePage, GamePage, MyTeamsPage, TeamDetailPage, TeamsPage, TournamentsPage } from '../pages/pages';
+import { TeamHomePage, MyTeamsPage, TournamentsPage } from '../pages/pages';
 import { UserSettings } from "../shared/userSettings";
 import { EliteApi } from "../shared/shared";
 

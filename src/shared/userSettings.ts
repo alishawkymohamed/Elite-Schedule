@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import * as _ from 'lodash';
 import { Events } from "ionic-angular";
 @Injectable()
 export class UserSettings {
@@ -25,10 +24,11 @@ export class UserSettings {
 
     getAllFavorite() {
         let items: any[] = [];
+        console.log(this.storage);
         return this.storage.forEach(element => {
             items.push(JSON.parse(element));
         }).then(() => {
-            return items.length > 0 ? items : null;
+            return items.length > 0 ? items : [];
         });
     }
 }

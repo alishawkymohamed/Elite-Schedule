@@ -16,18 +16,24 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="!favorites">
+  <ion-card *ngIf="favorites.length == 0">
     <ion-card-header class="my-teams-header">Not Following a Team !!</ion-card-header>
     <ion-card-content>
       <p>If you want to follow teams ..<br/> Please find a tournament first !!
       </p>
-      <button ion-button full round (click)="goToTournaments()">
+      <br/>
+      <br/>
+      <br/>
+      <div text-center>
+        <button ion-button full round (click)="goToTournaments()">
     <ion-icon name="search"></ion-icon>&nbsp;&nbsp;
     Find a Tournament
     </button>
+      </div>
+
     </ion-card-content>
   </ion-card>
-  <ion-card *ngIf="favorites">
+  <ion-card *ngIf="favorites.length > 0">
     <ion-list>
       <ion-list-header class="my-teams-header">
         <h3>Followed Teams</h3>
@@ -43,10 +49,15 @@
       <hr/>
       <p>If you want to follow teams ..<br/> Please find a tournament first !!
       </p>
-      <button ion-button full round (click)="goToTournaments()">
+      <br/>
+      <br/>
+      <div text-center>
+        <button ion-button full round (click)="goToTournaments()">
     <ion-icon name="search"></ion-icon>&nbsp;&nbsp;
     Find a Tournament
     </button>
+      </div>
+
     </ion-card-content>
   </ion-card>
 </ion-content>

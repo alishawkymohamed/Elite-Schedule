@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoadingController, NavController, NavParams } from 'ionic-angular';
+import { LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
 import { TeamsPage } from "../pages";
 import { EliteApi } from "../../shared/shared";
 
@@ -12,7 +12,8 @@ export class TournamentsPage {
   constructor(private navCtrl: NavController,
     private navParams: NavParams,
     private EliteApi: EliteApi,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private toast: ToastController
   ) { }
 
   ionViewDidLoad() {
@@ -25,6 +26,15 @@ export class TournamentsPage {
         if (data) {
           loader.dismiss();
           this.tournaments = data;
+        }
+        else {
+          let toaster = this.toast.create({
+            message: "Error in Connection .. Try again latter !!",
+            duration: 2000
+          })
+          loader.dismiss();
+          toaster.present();
+          this.navCtrl.pop();
         }
       });
   }
